@@ -1,0 +1,28 @@
+{
+  "name": "MountainAlertMessage",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "react-native run-ios",
+    "start-device": "react-native run-ios --device",
+    "release": "react-native run-ios --configuration Release",
+    "release-device": "react-native run-ios --device --configuration Release",
+    "test": "jest"
+  },
+  "dependencies": {
+    "react": "16.3.1",
+    "react-native": "0.55.4",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.0"
+  },
+  "devDependencies": {
+    "babel-jest": "22.4.3",
+    "babel-preset-react-native": "4.0.0",
+    "jest": "22.4.3",
+    "react-test-renderer": "16.3.1"
+  },
+  "jest": {
+    "preset": "react-native"
+  }
+}
