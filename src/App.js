@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import {
-  View,
-  StyleSheet,
   Dimensions,
 } from 'react-native';
 
@@ -13,14 +11,6 @@ import {
 
 import SettingPage from './containers/SettingPage'
 
-
-const FirstRoute = () => (<View
-  style={styles.view}
->
-  <SettingPage />
-</View>);
-const SecondRoute = () => <View style={[styles.container, { backgroundColor: '#000000' }]} />;
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -28,7 +18,7 @@ class App extends Component {
     this.state = {
       index: 0,
       routes: [
-        { key: 'first', title: 'First__T' },
+        { key: 'SettingPage', title: '設定頁' },
         { key: 'second', title: 'Second__T' },
       ],
     };
@@ -43,8 +33,8 @@ class App extends Component {
   _renderHeader = props => <TabBar {...props} />;
 
   _renderScene = SceneMap({
-    first: FirstRoute,
-    second: SecondRoute,
+    SettingPage: () => (<SettingPage />),
+    second: () => (<SettingPage />),
   });
 
   render() {
@@ -58,15 +48,5 @@ class App extends Component {
     );
   }
 }
-
-const styles = StyleSheet.create({
-  view: {
-    marginTop: 100,
-    marginLeft: 10,
-  },
-  container: {
-    flex: 1,
-  },
-});
 
 export default App
