@@ -4,7 +4,7 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
-import MapView, { PROVIDER_DEFAULT, Marker } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 import contactType, { initialState } from '../constants/contactType';
 
@@ -13,10 +13,10 @@ export default class MapPage extends Component {
     super(props);
 
     this.state = {
-      latitude: 37.78825,
-      longitude: -122.4324,
-      latitudeDelta: 0.0922,
-      longitudeDelta: 0.0421,
+      latitude: 23.4693299,
+      longitude: 120.9566917,
+      latitudeDelta: 0.002,
+      longitudeDelta: 0.002,
     }
 
     navigator.geolocation.watchPosition(
@@ -36,16 +36,11 @@ export default class MapPage extends Component {
     return (
       <View style={styles.view}>
         <MapView
-          provider={PROVIDER_DEFAULT}
+          showsUserLocation
           style={styles.map}
-          initialRegion={this.state}
+          provider={PROVIDER_GOOGLE}
           region={this.state}
         >
-          <Marker
-            // key={marker.key}
-            coordinate={this.state}
-            pinColor={'#ff0000'}
-          />
         </MapView>
         <Text>精準度：{this.state.accuracy}</Text>
         <Text>速度：{this.state.speed}</Text>
@@ -65,6 +60,8 @@ const styles = StyleSheet.create({
   },
   map: {
     ...StyleSheet.absoluteFillObject,
+    height: "50%",
+
   },
 });
 
