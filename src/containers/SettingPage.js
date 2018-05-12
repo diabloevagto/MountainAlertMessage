@@ -4,6 +4,7 @@ import { setContact } from '../actions'
 import SettingPage from '../components/SettingPage'
 
 const mapStateToProps = state => ({
+  contact: state.contact,
 })
 
 const mapDispatchToProps = dispatch => ({

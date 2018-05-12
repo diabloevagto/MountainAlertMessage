@@ -1,16 +1,5 @@
 import types from '../constants/actionTypes';
-import contactType from '../constants/contactType';
-
-const initialState = {
-  [contactType.MYSELF]: {
-    name: '',
-    phone: ''
-  },
-  [contactType.FIRST]: {
-    name: '',
-    phone: ''
-  },
-}
+import contactType, { initialState } from '../constants/contactType';
 
 const contact = (state = initialState, { type, payload }) => {
   switch (type) {
