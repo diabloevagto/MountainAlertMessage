@@ -1,12 +1,10 @@
 import types from '../constants/actionTypes';
 
-export const getTodos = () => ({
-  type: types.GET_TODOS,
+export const getContact = () => ({
+  type: types.GET_CONTACT,
 })
 
-export const addTodo = todos => ({
-  type: types.ADD_TODO,
-  payload: {
-    todos
-  }
+export const setContact = payload => ({
+  type: types.SET_CONTACT,
+  payload
 })

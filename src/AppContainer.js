@@ -1,13 +1,13 @@
 import { connect } from 'react-redux'
 
-import { getTodos } from './actions'
+import { getContact } from './actions'
 import App from './App'
 
 const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  getTodos: () => dispatch(getTodos())
+  getContact: () => dispatch(getContact())
 })
 
 export default connect(

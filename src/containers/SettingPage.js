@@ -1,17 +1,16 @@
 import { connect } from 'react-redux'
 
-import { addTodo } from '../actions'
-import Footer from '../components/Footer'
+import { setContact } from '../actions'
+import SettingPage from '../components/SettingPage'
 
 const mapStateToProps = state => ({
-  todos: state.todos,
 })
 
 const mapDispatchToProps = dispatch => ({
-  addTodo: text => dispatch(addTodo(text))
+  setContact: (contact) => dispatch(setContact(contact))
 })
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(Footer)
+)(SettingPage)

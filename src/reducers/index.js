@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
-import todos from './todos'
+import contact from './contact'
 
 export default combineReducers({
-  todos,
+  contact,
 })
