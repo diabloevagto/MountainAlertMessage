@@ -4,6 +4,7 @@ import {
   Text,
   StyleSheet,
 } from 'react-native';
+import MapView, { PROVIDER_DEFAULT, Marker } from 'react-native-maps';
 
 import contactType, { initialState } from '../constants/contactType';
 
@@ -11,7 +12,12 @@ export default class MapPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {}
+    this.state = {
+      latitude: 37.78825,
+      longitude: -122.4324,
+      latitudeDelta: 0.0922,
+      longitudeDelta: 0.0421,
+    }
 
     navigator.geolocation.watchPosition(
       (pos) => {
@@ -29,6 +35,18 @@ export default class MapPage extends Component {
   render() {
     return (
       <View style={styles.view}>
+        <MapView
+          provider={PROVIDER_DEFAULT}
+          style={styles.map}
+          initialRegion={this.state}
+          region={this.state}
+        >
+          <Marker
+            // key={marker.key}
+            coordinate={this.state}
+            pinColor={'#ff0000'}
+          />
+        </MapView>
         <Text>精準度：{this.state.accuracy}</Text>
         <Text>速度：{this.state.speed}</Text>
         <Text>緯度：{this.state.latitude}</Text>
@@ -41,7 +59,12 @@ export default class MapPage extends Component {
 
 const styles = StyleSheet.create({
   view: {
-    marginLeft: '20%'
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
   },
 });
 
