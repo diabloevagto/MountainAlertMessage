@@ -2,9 +2,12 @@ import React, { Component } from 'react'
 import {
   View,
   Text,
+  Button,
   StyleSheet,
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import Communications from 'react-native-communications';
+
 
 import contactType, { initialState } from '../constants/contactType';
 
@@ -46,6 +49,14 @@ export default class MapPage extends Component {
         <Text>速度：{this.state.speed}</Text>
         <Text>緯度：{this.state.latitude}</Text>
         <Text>經度：{this.state.longitude}</Text>
+        <Button
+          title={"phone call"}
+          onPress={() => Communications.phonecall(this.props.contact[contactType.FIRST].phone, true)}
+        />
+        <Button
+          title={"message"}
+          onPress={() => Communications.text(this.props.contact[contactType.FIRST].phone, "安安你好")}
+        />
       </View>
     );
   }

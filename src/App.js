@@ -10,7 +10,7 @@ import {
 } from 'react-native-tab-view';
 
 import SettingPage from './containers/SettingPage'
-import MapPage from './components/MapPage'
+import MapPage from './containers/MapPage'
 
 class App extends Component {
   constructor(props) {
