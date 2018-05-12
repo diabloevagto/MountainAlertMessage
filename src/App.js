@@ -10,6 +10,7 @@ import {
 } from 'react-native-tab-view';
 
 import SettingPage from './containers/SettingPage'
+import MapPage from './components/MapPage'
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class App extends Component {
       index: 0,
       routes: [
         { key: 'SettingPage', title: '設定頁' },
-        { key: 'second', title: 'Second__T' },
+        { key: 'MapPage', title: 'Second__T' },
       ],
     };
   }
@@ -34,7 +35,7 @@ class App extends Component {
 
   _renderScene = SceneMap({
     SettingPage: () => (<SettingPage />),
-    second: () => (<SettingPage />),
+    MapPage: () => (<MapPage />),
   });
 
   render() {
