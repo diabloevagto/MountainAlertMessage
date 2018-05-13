@@ -45,18 +45,28 @@ export default class MapPage extends Component {
           region={this.state}
         >
         </MapView>
-        <Text>精準度：{this.state.accuracy}</Text>
-        <Text>速度：{this.state.speed}</Text>
-        <Text>緯度：{this.state.latitude}</Text>
-        <Text>經度：{this.state.longitude}</Text>
-        <Button
-          title={"phone call"}
-          onPress={() => Communications.phonecall(this.props.contact[contactType.FIRST].phone, true)}
-        />
-        <Button
-          title={"message"}
-          onPress={() => Communications.text(this.props.contact[contactType.FIRST].phone, "安安你好")}
-        />
+        <View style={styles.flexView}>
+          <View style={styles.flexItem}>
+            <Text>精準度：{this.state.accuracy}</Text>
+            <Text>速度：{this.state.speed}</Text>
+            <Text>緯度：{this.state.latitude}</Text>
+            <Text>經度：{this.state.longitude}</Text>
+            <Button
+              title={"phone call"}
+              onPress={() => Communications.phonecall(this.props.contact[contactType.FIRST].phone, true)}
+            />
+            <Button
+              title={"message"}
+              onPress={() => Communications.text(this.props.contact[contactType.FIRST].phone, "安安你好")}
+            />
+          </View>
+          <View style={styles.flexItem}>
+            <Text>精準度：{this.state.accuracy}</Text>
+            <Text>速度：{this.state.speed}</Text>
+            <Text>緯度：{this.state.latitude}</Text>
+            <Text>經度：{this.state.longitude}</Text>
+          </View>
+        </View>
       </View>
     );
   }
@@ -66,13 +76,21 @@ export default class MapPage extends Component {
 const styles = StyleSheet.create({
   view: {
     ...StyleSheet.absoluteFillObject,
-    justifyContent: 'flex-end',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
   map: {
     ...StyleSheet.absoluteFillObject,
-    height: "50%",
-
+    top: '50%',
+  },
+  flexView: {
+    margin: 10,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  flexItem: {
+    flexGrow: 1,
   },
 });
 
