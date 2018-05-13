@@ -8,3 +8,8 @@ export const setContact = payload => ({
   type: types.SET_CONTACT,
   payload
 })
+
+export const setPosition = payload => ({
+  type: types.SET_POSITION,
+  payload
+})

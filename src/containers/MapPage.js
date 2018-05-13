@@ -1,14 +1,15 @@
 import { connect } from 'react-redux'
 
-import { setContact } from '../actions'
+import { setContact, setPosition } from '../actions'
 import MapPage from '../components/MapPage'
 
 const mapStateToProps = state => ({
   contact: state.contact,
+  position: state.position,
 })
 
 const mapDispatchToProps = dispatch => ({
-  // setContact: (contact) => dispatch(setContact(contact))
+  setPosition: (position) => dispatch(setPosition(position))
 })
 
 export default connect(
