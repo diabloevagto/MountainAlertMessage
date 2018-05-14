@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { setContact } from '../actions'
+import { setContact, setMessageContent } from '../actions'
 import SettingPage from '../components/SettingPage'
 
 const mapStateToProps = state => ({
@@ -8,7 +8,8 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  setContact: (contact) => dispatch(setContact(contact))
+  setContact: (contact) => dispatch(setContact(contact)),
+  setMessageContent: (content) => dispatch(setMessageContent(content)),
 })
 
 export default connect(

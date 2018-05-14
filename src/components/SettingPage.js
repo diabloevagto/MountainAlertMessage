@@ -35,7 +35,6 @@ export default class SettingPage extends Component {
           defaultValue={this.props.contact[contactType.MYSELF].phone}
           onChangeText={(text) => this.setContact(contactType.MYSELF, { phone: text })}
         />
-
         <Text style={styles.title}>聯絡人資料</Text>
         <TextInput
           style={styles.textInput}
@@ -48,6 +47,10 @@ export default class SettingPage extends Component {
           placeholder="輸入第一聯絡人的電話"
           defaultValue={this.props.contact[contactType.FIRST].phone}
           onChangeText={(text) => this.setContact(contactType.FIRST, { phone: text })}
+        />
+        <Button
+          title="test"
+        // onPress={() => this.props.setMessageContent({ key: '3', text: '3', enable: false })}
         />
       </View>
     );

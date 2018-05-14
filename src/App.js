@@ -27,6 +27,7 @@ class App extends Component {
 
   componentDidMount() {
     this.props.getContact()
+    this.props.getMessageContent()
   }
 
   _handleIndexChange = index => this.setState({ index });

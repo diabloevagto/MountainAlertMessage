@@ -31,7 +31,7 @@ export default class MapPage extends Component {
       });
   }
 
-  OptionSwitch(key, title) {
+  OptionSwitch({ key, text, enable }) {
     const styles = StyleSheet.create({
       flexView: {
         marginTop: 5,
@@ -49,17 +49,16 @@ export default class MapPage extends Component {
     return (
       <View style={styles.flexView} key={key}>
         <Switch
-          onValueChange={(e) => this.setState({ [key]: e })}
-          value={this.state[key]}
+          onValueChange={(enable) => this.props.updateMessageContent({ key, text, enable })}
+          value={enable}
         />
-        <Text style={styles.text}> {title} </Text>
+        <Text style={styles.text}> {text} </Text>
       </View>
     )
   }
 
   render() {
     const position = this.props.position
-    console.log(position)
     return (
       < View style={styles.view} >
         <MapView
@@ -88,10 +87,7 @@ export default class MapPage extends Component {
             <ScrollView
               scrollEnabled={false}
             >
-              {[
-                { key: 'switchValue', title: 'sw1' },
-                { key: 'switchValue2', title: 'sw2' },
-              ].map(item => this.OptionSwitch(item.key, item.title))}
+              {this.props.messageContent.map(item => this.OptionSwitch(item))}
             </ScrollView>
 
           </View>

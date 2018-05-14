@@ -13,3 +13,17 @@ export const setPosition = payload => ({
   type: types.SET_POSITION,
   payload
 })
+
+export const getMessageContent = () => ({
+  type: types.GET_MESSAGE_CONTENT,
+})
+
+export const setMessageContent = payload => ({
+  type: types.SET_MESSAGE_CONTENT,
+  payload
+})
+
+export const updateMessageContent = payload => ({
+  type: types.UPDATE_MESSAGE_CONTENT,
+  payload
+})
