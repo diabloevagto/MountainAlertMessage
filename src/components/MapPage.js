@@ -31,6 +31,18 @@ export default class MapPage extends Component {
       });
   }
 
+  SMSmessage() {
+    const coords = () => `緯度：${this.props.position.latitude}, 經度：${this.props.position.longitude}`
+    const message = () => this.props.messageContent.map(item => {
+      return (item.deleted === false && item.enable === true) ? item.text : ''
+    })
+      .filter((st) => st != '')
+      .join(',')
+
+    const name = this.props.contact[contactType.MYSELF].name
+    return `我是${name}，目前座標為${coords()}，附註：${message()}`
+  }
+
   OptionSwitch(item) {
     const { key, text, enable, deleted } = item
     if (deleted === true) return
@@ -64,6 +76,7 @@ export default class MapPage extends Component {
     const position = this.props.position
     return (
       < View style={styles.view} >
+        <Text>{this.SMSmessage()}</Text>
         <MapView
           showsUserLocation
           style={styles.map}
@@ -83,7 +96,7 @@ export default class MapPage extends Component {
             />
             <Button
               title={"message"}
-              onPress={() => Communications.text(this.props.contact[contactType.FIRST].phone, "安安你好")}
+              onPress={() => Communications.text(this.props.contact[contactType.FIRST].phone, this.SMSmessage())}
             />
           </View>
           <View style={styles.flexItem}>
