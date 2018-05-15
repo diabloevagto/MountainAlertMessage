@@ -31,7 +31,9 @@ export default class MapPage extends Component {
       });
   }
 
-  OptionSwitch({ key, text, enable }) {
+  OptionSwitch({ key, text, enable, deleted }) {
+    if (deleted === true) return
+
     const styles = StyleSheet.create({
       flexView: {
         marginTop: 5,
