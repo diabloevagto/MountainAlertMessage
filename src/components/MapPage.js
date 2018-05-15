@@ -31,7 +31,8 @@ export default class MapPage extends Component {
       });
   }
 
-  OptionSwitch({ key, text, enable, deleted }) {
+  OptionSwitch(item) {
+    const { key, text, enable, deleted } = item
     if (deleted === true) return
 
     const styles = StyleSheet.create({
@@ -51,7 +52,7 @@ export default class MapPage extends Component {
     return (
       <View style={styles.flexView} key={key}>
         <Switch
-          onValueChange={(enable) => this.props.updateMessageContent({ key, text, enable })}
+          onValueChange={(enable) => this.props.updateMessageContent({ ...item, enable })}
           value={enable}
         />
         <Text style={styles.text}> {text} </Text>
