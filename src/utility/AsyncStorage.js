@@ -16,7 +16,7 @@ export const setPosition = async (position) => {
 
 export const getMessageContent = async () => {
   let item = await AsyncStorage.getItem('messageContent');
-  return JSON.parse(item)
+  return JSON.parse(item) || []
 }
 
 export const setMessageContent = async (content) => {
