@@ -32,7 +32,8 @@ export default class SettingPage extends Component {
           style={styles.textInput}
           placeholder="輸入你的姓名"
           defaultValue={this.props.contact[contactType.MYSELF].name}
-          onChangeText={(text) => this.setContact(contactType.MYSELF, { name: text })}
+          // onChangeText={(text) => this.setContact(contactType.MYSELF, { name: text })}
+          onEndEditing={(e) => this.setContact(contactType.MYSELF, { name: e.nativeEvent.text })}
         />
         <TextInput
           style={styles.textInput}
@@ -46,7 +47,8 @@ export default class SettingPage extends Component {
           style={styles.textInput}
           placeholder="輸入第一聯絡人的姓名"
           defaultValue={this.props.contact[contactType.FIRST].name}
-          onChangeText={(text) => this.setContact(contactType.FIRST, { name: text })}
+          // onChangeText={(text) => this.setContact(contactType.FIRST, { name: text })}
+          onEndEditing={(e) => this.setContact(contactType.FIRST, { name: e.nativeEvent.text })}
         />
         <TextInput
           style={styles.textInput}
@@ -75,7 +77,8 @@ export default class SettingPage extends Component {
           <TextInput
             placeholder="新增的文字"
             defaultValue={this.state.TmpMessage}
-            onChangeText={(text) => this.setState({ TmpMessage: text })}
+            // onChangeText={(text) => this.setState({ TmpMessage: text })}
+            onEndEditing={(e) => this.setState({ TmpMessage: e.nativeEvent.text })} />
           />
           <Button
             title="add"
