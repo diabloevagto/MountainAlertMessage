@@ -36,6 +36,7 @@ export default class SettingPage extends Component {
         />
         <TextInput
           style={styles.textInput}
+          keyboardType={'numeric'}
           placeholder="輸入你的電話"
           defaultValue={this.props.contact[contactType.MYSELF].phone}
           onChangeText={(text) => this.setContact(contactType.MYSELF, { phone: text })}
@@ -49,6 +50,7 @@ export default class SettingPage extends Component {
         />
         <TextInput
           style={styles.textInput}
+          keyboardType={'numeric'}
           placeholder="輸入第一聯絡人的電話"
           defaultValue={this.props.contact[contactType.FIRST].phone}
           onChangeText={(text) => this.setContact(contactType.FIRST, { phone: text })}
