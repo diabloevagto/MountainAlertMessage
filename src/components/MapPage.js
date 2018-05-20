@@ -99,9 +99,8 @@ export default class MapPage extends Component {
               onPress={() => Communications.text(this.props.contact[contactType.FIRST].phone, this.SMSmessage())}
             />
           </View>
-          <View style={styles.flexItem}>
+          <View style={[styles.flexItem, { height: '40%' }]}>
             <ScrollView
-              scrollEnabled={false}
             >
               {this.props.messageContent.map(item => this.OptionSwitch(item))}
             </ScrollView>

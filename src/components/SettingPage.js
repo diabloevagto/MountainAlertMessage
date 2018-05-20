@@ -25,6 +25,19 @@ export default class SettingPage extends Component {
   }
 
   contactInput() {
+    const styles = StyleSheet.create({
+      textInput: {
+        height: 40,
+        fontSize: 30,
+      },
+      title: {
+        marginTop: 40,
+        color: 'blue',
+        fontWeight: 'bold',
+        fontSize: 40,
+      },
+    });
+
     return (
       <View>
         <Text style={styles.title}>你的資料</Text>
@@ -63,25 +76,27 @@ export default class SettingPage extends Component {
 
   messageEdit() {
     const styles = StyleSheet.create({
-      flexView: {
-        // marginTop: 5,
-        // flex: 1,
-        // flexDirection: 'row',
-        // justifyContent: 'flex-start',
+      textInput: {
+        height: 40,
+        fontSize: 30,
+      },
+      text: {
+        fontSize: 25,
       },
     });
 
     return (
       <View style={{ marginTop: 40, }}>
-        <View style={styles.flexView}>
+        <View >
           <TextInput
-            placeholder="新增的文字"
+            style={styles.textInput}
+            placeholder="新增附註"
             defaultValue={this.state.TmpMessage}
             // onChangeText={(text) => this.setState({ TmpMessage: text })}
             onEndEditing={(e) => this.setState({ TmpMessage: e.nativeEvent.text })} />
           />
           <Button
-            title="add"
+            title="ADD"
             disabled={this.state.TmpMessage === ''}
             onPress={() => {
               this.props.setMessageContent({ key: new Date().getTime(), text: this.state.TmpMessage, enable: false, deleted: false })
@@ -89,19 +104,20 @@ export default class SettingPage extends Component {
             }}
           />
         </View>
-        <ScrollView
-        // scrollEnabled={false}
-        >
-          {this.props.messageContent.map(item => (
-            <Text
-              key={item.key}
-              style={{ textDecorationLine: item.deleted ? 'line-through' : 'none' }}
-              onPress={() => {
-                this.props.updateMessageContent({ ...item, deleted: !item.deleted })
-              }}
-            >{item.text}</Text>
-          ))}
-        </ScrollView>
+        <View style={{ height: '45%' }}>
+          <ScrollView
+          >
+            {this.props.messageContent.map(item => (
+              <Text
+                key={item.key}
+                style={[styles.text, { textDecorationLine: item.deleted ? 'line-through' : 'none' }]}
+                onPress={() => {
+                  this.props.updateMessageContent({ ...item, deleted: !item.deleted })
+                }}
+              >{item.text}</Text>
+            ))}
+          </ScrollView>
+        </View>
 
       </View>
     )
@@ -109,7 +125,7 @@ export default class SettingPage extends Component {
 
   render() {
     return (
-      <View style={styles.view}>
+      <View style={{ marginLeft: '20%' }}>
         {this.contactInput()}
         {this.messageEdit()}
       </View>
@@ -118,18 +134,4 @@ export default class SettingPage extends Component {
 }
 
 
-const styles = StyleSheet.create({
-  view: {
-    marginLeft: '20%'
-  },
-  textInput: {
-    height: 40
-  },
-  title: {
-    marginTop: 40,
-    color: 'blue',
-    fontWeight: 'bold',
-    fontSize: 30,
-  },
-});
 
