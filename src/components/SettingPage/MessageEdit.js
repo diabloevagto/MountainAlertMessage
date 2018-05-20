@@ -20,7 +20,7 @@ export default class MessageEdit extends Component {
   render() {
     return (
       <View style={{ marginTop: 40, }}>
-        <View >
+        <View style={styles.flexView}>
           <TextInput
             style={styles.textInput}
             placeholder="新增附註"
@@ -36,7 +36,7 @@ export default class MessageEdit extends Component {
             }}
           />
         </View>
-        <View style={{ height: '45%' }}>
+        <View style={{ height: '90%' }}>
           <ScrollView
           >
             {this.props.messageContent.map(item => (
@@ -69,6 +69,7 @@ export default class MessageEdit extends Component {
 const styles = StyleSheet.create({
   textInput: {
     height: 40,
+    width: '70%',
     fontSize: 30,
   },
   text: {
