@@ -16,11 +16,6 @@ export default class MapPage extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      switchValue: true,
-      switchValue2: false,
-    }
-
     navigator.geolocation.watchPosition(
       (pos) => this.props.setPosition(pos.coords),
       (err) => console.log(err),
