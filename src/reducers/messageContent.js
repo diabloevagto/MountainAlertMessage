@@ -7,8 +7,8 @@ const messageContent = (state = initialState, { type, payload }) => {
     case types.GET_MESSAGE_CONTENT_SUCCESS:
       return payload || initialState
     case types.SET_MESSAGE_CONTENT_SUCCESS:
-      return payload
     case types.UPDATE_MESSAGE_CONTENT_SUCCESS:
+    case types.DELETE_MESSAGE_CONTENT_SUCCESS:
       return payload
     default:
       return state

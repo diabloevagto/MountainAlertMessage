@@ -40,13 +40,23 @@ export default class MessageEdit extends Component {
           <ScrollView
           >
             {this.props.messageContent.map(item => (
-              <Text
+              <View
+                style={styles.flexView}
                 key={item.key}
-                style={[styles.text, { textDecorationLine: item.deleted ? 'line-through' : 'none' }]}
-                onPress={() => {
-                  this.props.updateMessageContent({ ...item, deleted: !item.deleted })
-                }}
-              >{item.text}</Text>
+              >
+                {item.deleted && <Button
+                  title="X"
+                  onPress={() => {
+                    this.props.deleteMessageContent({ key: item.key })
+                  }}
+                />}
+                <Text
+                  style={[styles.text, { textDecorationLine: item.deleted ? 'line-through' : 'none' }]}
+                  onPress={() => {
+                    this.props.updateMessageContent({ ...item, deleted: !item.deleted })
+                  }}
+                >{item.text}</Text>
+              </View>
             ))}
           </ScrollView>
         </View>
@@ -63,5 +73,20 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 25,
+  },
+  view: {
+    ...StyleSheet.absoluteFillObject,
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+    top: '50%',
+  },
+  flexView: {
+    margin: 10,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
   },
 });

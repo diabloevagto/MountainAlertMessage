@@ -27,3 +27,8 @@ export const updateMessageContent = payload => ({
   type: types.UPDATE_MESSAGE_CONTENT,
   payload
 })
+
+export const deleteMessageContent = payload => ({
+  type: types.DELETE_MESSAGE_CONTENT,
+  payload
+})

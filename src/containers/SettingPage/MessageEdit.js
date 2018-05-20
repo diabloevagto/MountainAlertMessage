@@ -1,6 +1,6 @@
 import { connect } from 'react-redux'
 
-import { setContact, setMessageContent, updateMessageContent } from '../../actions'
+import { setMessageContent, updateMessageContent, deleteMessageContent } from '../../actions'
 import MessageEdit from '../../components/SettingPage/MessageEdit'
 
 const mapStateToProps = state => ({
@@ -10,6 +10,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   setMessageContent: (content) => dispatch(setMessageContent(content)),
   updateMessageContent: (content) => dispatch(updateMessageContent(content)),
+  deleteMessageContent: (content) => dispatch(deleteMessageContent(content)),
 })
 
 export default connect(

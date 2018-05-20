@@ -35,3 +35,12 @@ export const updateMessageContent = async (content) => {
 
   return allContent
 }
+
+export const deleteMessageContent = async (content) => {
+  let allContent = await getMessageContent()
+  const idx = allContent.findIndex((el) => el.key === content.key)
+  allContent.splice(idx, 1)
+  await AsyncStorage.setItem('messageContent', JSON.stringify(allContent));
+
+  return allContent
+}
