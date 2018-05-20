@@ -3,8 +3,8 @@ import {
   View,
 } from 'react-native';
 
-import ContactInput from './SettingPage/ContactInput';
-import MessageEdit from './SettingPage/MessageEdit';
+import ContactInput from '../containers/SettingPage/ContactInput';
+import MessageEdit from '../containers/SettingPage/MessageEdit';
 
 export default class SettingPage extends Component {
   constructor(props) {
@@ -13,15 +13,8 @@ export default class SettingPage extends Component {
   render() {
     return (
       <View style={{ marginLeft: '20%' }}>
-        <ContactInput
-          contact={this.props.contact}
-          setContact={this.props.setContact}
-        />
-        <MessageEdit
-          messageContent={this.props.messageContent}
-          setMessageContent={this.props.setMessageContent}
-        />
-
+        <ContactInput />
+        <MessageEdit />
       </View>
     );
   }

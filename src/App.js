@@ -9,7 +9,7 @@ import {
   SceneMap,
 } from 'react-native-tab-view';
 
-import SettingPage from './containers/SettingPage'
+import SettingPage from './components/SettingPage'
 import MapPage from './containers/MapPage'
 
 class App extends Component {
@@ -17,7 +17,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      index: 1,
+      index: 0,
       routes: [
         { key: 'SettingPage', title: '設定頁' },
         { key: 'MapPage', title: '訊息頁' },
