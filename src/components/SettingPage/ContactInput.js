@@ -35,7 +35,7 @@ export default class ContactInput extends Component {
           defaultValue={this.props.contact[contactType.MYSELF].phone}
           onChangeText={(text) => this.setContact(contactType.MYSELF, { phone: text })}
         />
-        <Text style={styles.title}>聯絡人資料</Text>
+        <Text style={[styles.title, { marginTop: 40 }]}>聯絡人資料</Text>
         <TextInput
           style={styles.textInput}
           placeholder="輸入第一聯絡人的姓名"
@@ -60,7 +60,6 @@ const styles = StyleSheet.create({
     fontSize: 30,
   },
   title: {
-    marginTop: 40,
     color: 'blue',
     fontWeight: 'bold',
     fontSize: 40,

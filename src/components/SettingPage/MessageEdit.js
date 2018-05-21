@@ -19,7 +19,7 @@ export default class MessageEdit extends Component {
 
   render() {
     return (
-      <View style={{ marginTop: 40, }}>
+      <View >
         <View style={styles.flexView}>
           <TextInput
             style={styles.textInput}

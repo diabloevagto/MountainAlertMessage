@@ -17,16 +17,17 @@ export default class SettingPage extends Component {
   }
   render() {
     return (
-      <View style={{ marginLeft: '20%' }}>
+      [
         <Button
           title={'切換'}
           onPress={() => this.setState({ show: !this.state.show })}
-        />
+        />,
+        <View style={{ marginLeft: '20%', marginTop: 20 }}>
+          {this.state.show === true && <ContactInput />}
+          {this.state.show === false && <MessageEdit />}
 
-        {this.state.show === true && <ContactInput />}
-        {this.state.show === false && <MessageEdit />}
-
-      </View>
+        </View>
+      ]
     );
   }
 }
