@@ -11,6 +11,8 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import Communications from 'react-native-communications';
 
 import contactType, { initialState } from '../constants/contactType';
+import LocationInfo from '../containers/MapPage/LocationInfo'
+import OptionSwitch from '../containers/MapPage/OptionSwitch'
 
 export default class MapPage extends Component {
   constructor(props) {
@@ -38,35 +40,6 @@ export default class MapPage extends Component {
     return `我是${name}，目前座標為${coords()}，附註：${message()}`
   }
 
-  OptionSwitch(item) {
-    const { key, text, enable, deleted } = item
-    if (deleted === true) return
-
-    const styles = StyleSheet.create({
-      flexView: {
-        marginTop: 5,
-        flex: 1,
-        flexDirection: 'row',
-        justifyContent: 'flex-start',
-      },
-      text: {
-        marginLeft: 10,
-        color: 'red',
-        fontSize: 25,
-      },
-    });
-
-    return (
-      <View style={styles.flexView} key={key}>
-        <Switch
-          onValueChange={(enable) => this.props.updateMessageContent({ ...item, enable })}
-          value={enable}
-        />
-        <Text style={styles.text}> {text} </Text>
-      </View>
-    )
-  }
-
   render() {
     const position = this.props.position
     return (
@@ -80,27 +53,8 @@ export default class MapPage extends Component {
         >
         </MapView>
         <View style={styles.flexView}>
-          <View style={styles.flexItem}>
-            <Text>精準度：{position.accuracy.toFixed(2)} 公尺</Text>
-            <Text>速度：{position.speed.toFixed(2)} 公尺/秒</Text>
-            <Text>緯度：{position.latitude.toFixed(4)}</Text>
-            <Text>經度：{position.longitude.toFixed(4)}</Text>
-            <Button
-              title={"phone call"}
-              onPress={() => Communications.phonecall(this.props.contact[contactType.FIRST].phone, true)}
-            />
-            <Button
-              title={"message"}
-              onPress={() => Communications.text(this.props.contact[contactType.FIRST].phone, this.SMSmessage())}
-            />
-          </View>
-          <View style={[styles.flexItem, { height: '40%' }]}>
-            <ScrollView
-            >
-              {this.props.messageContent.map(item => this.OptionSwitch(item))}
-            </ScrollView>
-
-          </View>
+          <LocationInfo SMSmessage={this.SMSmessage()} />
+          <OptionSwitch />
         </View>
       </View>
     );
@@ -123,9 +77,6 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
-  },
-  flexItem: {
-    flexGrow: 1,
   },
 });
 
