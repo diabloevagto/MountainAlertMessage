@@ -6,6 +6,7 @@ import {
   Button,
   ScrollView,
   StyleSheet,
+  Share,
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import Communications from 'react-native-communications';
@@ -34,8 +35,14 @@ export default class LocationInfo extends Component {
           onPress={() => Communications.text(this.props.contact[contactType.FIRST].phone, this.props.SMSmessage)}
         />
         <Button
-          title={"Line"}
-          onPress={() => console.log('todo line')}
+          title={"分享到 app"}
+          onPress={() => {
+            Share.share(
+              {
+                message: this.props.SMSmessage
+              }).then(result => console.log(result)).catch(errorMsg => console.log(errorMsg));
+          }}
+        />
         />
       </View>
     );
