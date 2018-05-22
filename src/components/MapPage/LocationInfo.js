@@ -43,6 +43,14 @@ export default class LocationInfo extends Component {
               }).then(result => console.log(result)).catch(errorMsg => console.log(errorMsg));
           }}
         />
+        <Button
+          title={"google map link"}
+          onPress={() => {
+            Share.share(
+              {
+                message: `https://maps.google.com/?q=${position.latitude},${position.longitude}`
+              }).then(result => console.log(result)).catch(errorMsg => console.log(errorMsg));
+          }}
         />
       </View>
     );
