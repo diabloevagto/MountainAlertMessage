@@ -26,12 +26,16 @@ export default class LocationInfo extends Component {
         <Text>緯度：{position.latitude.toFixed(4)}</Text>
         <Text>經度：{position.longitude.toFixed(4)}</Text>
         <Button
-          title={"phone call"}
+          title={"打電話"}
           onPress={() => Communications.phonecall(this.props.contact[contactType.FIRST].phone, true)}
         />
         <Button
-          title={"message"}
+          title={"傳 SMS 簡訊"}
           onPress={() => Communications.text(this.props.contact[contactType.FIRST].phone, this.props.SMSmessage)}
+        />
+        <Button
+          title={"Line"}
+          onPress={() => console.log('todo line')}
         />
       </View>
     );

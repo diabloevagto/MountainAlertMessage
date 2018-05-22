@@ -46,7 +46,7 @@ export default class MapPage extends Component {
   }
 
   SMSmessage() {
-    const coords = () => `WGS84: ${this.props.position.latitude}, ${this.props.position.longitude}`
+    const coords = () => `WGS84: ${this.props.position.latitude}, ${this.props.position.longitude}(誤差 ${this.props.position.accuracy.toFixed(0)}m)`
     const currentTime = () => {
       const time = new Date()
       return `發送時間: ${this.state.date.toLocaleString()}`
@@ -65,7 +65,7 @@ export default class MapPage extends Component {
     const position = this.props.position
     return (
       < View style={styles.view} >
-        <Text>{this.SMSmessage()}</Text>
+        <Text style={styles.text} >{this.SMSmessage()}</Text>
         <MapView
           showsUserLocation
           style={styles.map}
@@ -98,6 +98,9 @@ const styles = StyleSheet.create({
     flex: 1,
     flexDirection: 'row',
     justifyContent: 'space-between',
+  },
+  text: {
+    fontSize: 18,
   },
 });
 
