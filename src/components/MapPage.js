@@ -18,6 +18,8 @@ export default class MapPage extends Component {
   constructor(props) {
     super(props);
 
+    this.state = { date: new Date() };
+
     navigator.geolocation.watchPosition(
       (pos) => this.props.setPosition(pos.coords),
       (err) => console.log(err),
@@ -28,8 +30,27 @@ export default class MapPage extends Component {
       });
   }
 
+  componentDidMount() {
+    this.timerID = setInterval(
+      () => {
+        this.setState({
+          date: new Date()
+        });
+      },
+      1000
+    );
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timerID);
+  }
+
   SMSmessage() {
-    const coords = () => `緯度：${this.props.position.latitude}, 經度：${this.props.position.longitude}`
+    const coords = () => `WGS84: ${this.props.position.latitude}, ${this.props.position.longitude}`
+    const currentTime = () => {
+      const time = new Date()
+      return `發送時間: ${this.state.date.toLocaleString()}`
+    }
     const message = () => this.props.messageContent.map(item => {
       return (item.deleted === false && item.enable === true) ? item.text : ''
     })
@@ -37,7 +58,7 @@ export default class MapPage extends Component {
       .join(',')
 
     const name = this.props.contact[contactType.MYSELF].name
-    return `我是${name}，目前座標為${coords()}，附註：${message()}`
+    return `我是${name}，${coords()}，${currentTime()}，附註：${message()}`
   }
 
   render() {
