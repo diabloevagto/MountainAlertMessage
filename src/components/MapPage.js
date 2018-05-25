@@ -46,7 +46,7 @@ export default class MapPage extends Component {
   }
 
   SMSmessage() {
-    const coords = () => `WGS84: ${this.props.position.latitude}, ${this.props.position.longitude}(誤差 ${this.props.position.accuracy.toFixed(0)}m)`
+    const coords = () => `WGS84: ${this.props.position.latitude.toFixed(6)}, ${this.props.position.longitude.toFixed(6)}(誤差 ${this.props.position.accuracy.toFixed(0)}m)`
     const currentTime = () => {
       const time = new Date()
       return `發送時間: ${this.state.date.toLocaleString()}`
