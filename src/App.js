@@ -17,7 +17,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      index: 0,
+      index: 1,
       routes: [
         { key: 'SettingPage', title: '設定頁' },
         { key: 'MapPage', title: '訊息頁' },
