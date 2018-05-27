@@ -61,6 +61,10 @@ export default class MapPage extends Component {
     return `我是${name}，${coords()}，${currentTime()}，附註：${message()}`
   }
 
+  GoogleMapLink() {
+    return `https://maps.google.com/?q=${this.props.position.latitude},${this.props.position.longitude}`
+  }
+
   render() {
     const position = this.props.position
     return (
@@ -74,7 +78,10 @@ export default class MapPage extends Component {
         >
         </MapView>
         <View style={styles.flexView}>
-          <LocationInfo SMSmessage={this.SMSmessage()} />
+          <LocationInfo
+            SMSmessage={this.SMSmessage()}
+            GoogleMapLink={this.GoogleMapLink()}
+          />
           <OptionSwitch />
         </View>
       </View>

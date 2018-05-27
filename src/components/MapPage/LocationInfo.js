@@ -39,7 +39,7 @@ export default class LocationInfo extends Component {
           onPress={() => {
             Share.share(
               {
-                message: this.props.SMSmessage
+                message: `${this.props.SMSmessage}。${this.props.GoogleMapLink}`
               }).then(result => console.log(result)).catch(errorMsg => console.log(errorMsg));
           }}
         />
@@ -48,7 +48,7 @@ export default class LocationInfo extends Component {
           onPress={() => {
             Share.share(
               {
-                message: `https://maps.google.com/?q=${position.latitude},${position.longitude}`
+                message: this.props.GoogleMapLink
               }).then(result => console.log(result)).catch(errorMsg => console.log(errorMsg));
           }}
         />
