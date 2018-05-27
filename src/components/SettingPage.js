@@ -12,19 +12,25 @@ export default class SettingPage extends Component {
     super(props);
 
     this.state = {
-      show: false,
+      editContact: this.props.editContact,
     }
   }
+
+  componentWillReceiveProps({ editContact }) {
+    console.log(editContact)
+    this.setState({ editContact })
+  }
+
   render() {
     return (
       <View>
         <Button
           title={'切換'}
-          onPress={() => this.setState({ show: !this.state.show })}
+          onPress={() => this.setState({ editContact: !this.state.editContact })}
         />
         <View style={{ marginLeft: '20%', marginTop: 20 }}>
-          {this.state.show === true && <ContactInput />}
-          {this.state.show === false && <MessageEdit />}
+          {this.state.editContact === true && <ContactInput />}
+          {this.state.editContact === false && <MessageEdit />}
         </View>
       </View>
     )
