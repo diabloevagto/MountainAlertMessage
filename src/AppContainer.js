@@ -1,14 +1,14 @@
 import { connect } from 'react-redux'
 
-import { getContact, getMessageContent } from './actions'
+import { initApp } from './actions'
 import App from './App'
 
 const mapStateToProps = state => ({
+  page: state.pages.page,
 })
 
 const mapDispatchToProps = dispatch => ({
-  getContact: () => dispatch(getContact()),
-  getMessageContent: () => dispatch(getMessageContent()),
+  initApp: () => dispatch(initApp()),
 })
 
 export default connect(

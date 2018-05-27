@@ -1,5 +1,9 @@
 import types from '../constants/actionTypes';
 
+export const initApp = () => ({
+  type: types.INIT_APP,
+})
+
 export const getContact = () => ({
   type: types.GET_CONTACT,
 })
