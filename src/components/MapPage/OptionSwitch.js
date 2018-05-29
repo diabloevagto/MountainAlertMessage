@@ -6,6 +6,7 @@ import {
   Button,
   ScrollView,
   StyleSheet,
+  Dimensions,
 } from 'react-native';
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import Communications from 'react-native-communications';
@@ -13,6 +14,7 @@ import Communications from 'react-native-communications';
 export default class OptionSwitch extends Component {
   constructor(props) {
     super(props);
+    console.log(Dimensions.get('window'))
   }
 
   OptionSwitch(item) {
@@ -30,6 +32,7 @@ export default class OptionSwitch extends Component {
         marginLeft: 10,
         color: 'red',
         fontSize: 25,
+        maxWidth: Dimensions.get('window').width * 0.45,
       },
     });
 
@@ -39,7 +42,9 @@ export default class OptionSwitch extends Component {
           onValueChange={(enable) => this.props.updateMessageContent({ ...item, enable })}
           value={enable}
         />
-        <Text style={styles.text}> {text} </Text>
+        <Text
+          numberOfLines={1}
+          style={styles.text}> {text} </Text>
       </View>
     )
   }
