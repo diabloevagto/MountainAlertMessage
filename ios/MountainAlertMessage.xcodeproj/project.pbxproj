@@ -712,8 +712,8 @@
 						TestTargetID = 13B07F861A680F5B00A75B9A;
 					};
 					13B07F861A680F5B00A75B9A = {
-						DevelopmentTeam = E3HA4ULF6C;
-						ProvisioningStyle = Manual;
+						DevelopmentTeam = 94MP44GFRJ;
+						ProvisioningStyle = Automatic;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1280,10 +1280,11 @@
 			baseConfigurationReference = D5770BAFF985F093FB9DEC1F /* Pods-MountainAlertMessage.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
-				DEVELOPMENT_TEAM = E3HA4ULF6C;
+				DEVELOPMENT_TEAM = 94MP44GFRJ;
 				INFOPLIST_FILE = MountainAlertMessage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1291,10 +1292,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tw.com.normi.MountainAlertMessage;
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.wi.MountainAlertMessage;
 				PRODUCT_NAME = MountainAlertMessage;
-				PROVISIONING_PROFILE = "967dbc27-2077-42fa-ae6d-0f3fce6b182f";
-				PROVISIONING_PROFILE_SPECIFIER = MountainAlertMessage_Dev;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -1304,10 +1305,10 @@
 			baseConfigurationReference = 395CFE7974EE45E886070213 /* Pods-MountainAlertMessage.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = E3HA4ULF6C;
+				DEVELOPMENT_TEAM = 94MP44GFRJ;
 				INFOPLIST_FILE = MountainAlertMessage/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -1315,10 +1316,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = tw.com.normi.MountainAlertMessage;
+				PRODUCT_BUNDLE_IDENTIFIER = tw.com.wi.MountainAlertMessage;
 				PRODUCT_NAME = MountainAlertMessage;
-				PROVISIONING_PROFILE = "f0aab29e-7b38-413c-be8b-1ceff895a96c";
-				PROVISIONING_PROFILE_SPECIFIER = MountainAlertMessage_AppStore;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
